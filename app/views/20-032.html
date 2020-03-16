@@ -178,6 +178,87 @@
 
       {% endset -%}
 
+      {% set droitCommsHtml %}
+      <h2 class="govuk-heading-l">Communications relating to Droit 20/032</h2>
+
+      {{ govukTable({
+        caption: "List of communications",
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: "Received"
+          },
+          {
+            text: "Type"
+          },
+          {
+            text: "Channel"
+          },
+          {
+            text: "Description"
+          },
+          {
+            text: "Sent by"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#'>12 January 2020, 10:04</a>"
+            },
+            {
+              text: "Auto-acknowledgement"
+            },
+            {
+              text: "Email"
+            },
+            {
+              text: "General acknowledgement"
+            },
+            {
+              text: "Automated"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>12 January 2020, 11:07</a>"
+            },
+            {
+              text: "Additional info request"
+            },
+            {
+              text: "Email"
+            },
+            {
+              text: "Request for clearer images"
+            },
+            {
+              text: "Imogen Smart"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>12 January 2020, 11:08</a>"
+            },
+            {
+              text: "Cannons expert request"
+            },
+            {
+              text: "Email"
+            },
+            {
+              text: "Cannons expert request"
+            },
+            {
+              text: "Automated"
+            }
+          ]
+
+        ]
+      }) }}
+
+      {% endset -%}
+
 
 
 
@@ -196,6 +277,13 @@
             id: "droit-images",
             panel: {
               html: wreckImagesHtml
+            }
+          },
+          {
+            label: "Communications",
+            id: "droit-comms",
+            panel: {
+              html: droitCommsHtml
             }
           }
         ]
