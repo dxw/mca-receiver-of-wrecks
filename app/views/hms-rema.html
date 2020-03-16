@@ -1,0 +1,103 @@
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-xl">Known wreck</span>
+      <h1 class="govuk-heading-xl">
+        HMS Rema
+      </h1>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Date lost"
+            },
+            value: {
+              text: "20 January 1823"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date lost"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Associated Droits"
+            },
+            value: {
+              html: "<a href='20-032'>20/032 - Porthole</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "associated droits"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Description"
+            },
+            value: {
+              text: "This is a naval wartime something or other and was sunk in 1823"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "finder details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              text: "51.016685, -4.206666"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "location"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <div class="map">
+        <div class="mapouter"><div class="gmap_canvas"><iframe width="960" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=51.016685%2C%20-4.206666&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net/blog/nordvpn-coupon-code/">grunnleggende vpn-tjenesten</a></div>
+        <style>.mapouter{position:relative;text-align:right;height:500px;width:960px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:960px;}</style></div>
+
+        <p class="govuk-body-s">Map of location of shipwreck and associated droits</p>
+      </div>
+
+    </div>
+</div>
+
+{% endblock %}
