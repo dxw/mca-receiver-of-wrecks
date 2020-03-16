@@ -10,12 +10,17 @@
     display: grid;
     align-content: start;
 
+    background-color: govuk-colour("light-grey");
+    padding: govuk-spacing(3);
+
     span {
       margin-bottom: 0;
+      color: govuk-colour("blue");
     }
 
     h2 {
       margin-bottom: 0;
+      font-weight: normal;
     }
   }
 
