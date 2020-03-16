@@ -1,0 +1,210 @@
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-xl">Droit 20/032</span>
+      <h1 class="govuk-heading-xl">
+        Unknown Dinghy
+      </h1>
+
+      {% set droitDetailsHtml %}
+      <h2 class="govuk-heading-l">Details of droit</h2>
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-9',
+        rows: [
+          {
+            key: {
+              text: "Location found"
+            },
+            value: {
+              html: "Instow Beach<br>Bideford, Devon<br>51.016685, -4.206666"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "location"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Date found"
+            },
+            value: {
+              text: "10 January 2020"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "date found"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Wreck finder"
+            },
+            value: {
+              html: "Bernard Bernardi<br>20 Smithfield Street, <br>Blosely, NR12 9LB<br><a href='mailto:bernardi@gmail.com'>bernardi@gmail.com</a><br>07943 731 247"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "finder details"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Known wreck"
+            },
+            value: {
+              html: "<a href='#'>HMS Rema</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "known wreck"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Wreck owner"
+            },
+            value: {
+              html: "<a href='#'>Department for Transport</a>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "wreck owner"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Description of wreck"
+            },
+            value: {
+              html: "<p>This is a wreck I found somewhere at this time and it had things in it and there was a marking on the left hand side</p>"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "description of wreck"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Estimated value"
+            },
+            value: {
+              text: "£4,300"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "estimated value"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Current location"
+            },
+            value: {
+              text: "Self-storage in Bideford"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Change",
+                  visuallyHiddenText: "current location"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {% endset -%}
+
+      {% set wreckImagesHtml %}
+      <h2 class="govuk-heading-l">Images of the wreck</h2>
+
+      <div class="wreck-images">
+        <img src="http://placekitten.com/700/500" alt="">
+        <img src="http://placekitten.com/700/500" alt="">
+        <img src="http://placekitten.com/700/500" alt="">
+        <img src="http://placekitten.com/700/500" alt="">
+        <img src="http://placekitten.com/700/500" alt="">
+        <img src="http://placekitten.com/700/500" alt="">
+      </div>
+
+      {% endset -%}
+
+
+
+
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Details",
+            id: "droit-details",
+            panel: {
+              html: droitDetailsHtml
+            }
+          },
+          {
+            label: "Images",
+            id: "droit-images",
+            panel: {
+              html: wreckImagesHtml
+            }
+          }
+        ]
+      }) }}
+
+
+
+    </div>
+</div>
+
+{% endblock %}
