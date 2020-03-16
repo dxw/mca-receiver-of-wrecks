@@ -21,36 +21,28 @@ $govuk-assets-path: '/govuk/assets/';
 
 @import "components/stats";
 @import "components/wreck-images";
+@import "components/wreck-map";
 
 .govuk-width-container {
   max-width: 1100px;
 }
 
-.mapouter {
-  position: relative;
-  text-align: right;
-  height: 500px;
-  width: 960px;
-}
+.app-header {
+  background-color: govuk-colour("black");
+  padding: govuk-spacing(3) 0;
+  nav {
 
-.gmap_canvas {
-  overflow: hidden;
-  background: none !important;
-  height: 500px;
-  width: 960px;
-}
+    display: grid;
+    grid-gap: govuk-spacing(9);
+    grid-template-columns: 200px auto;
 
+    a {
+      color: govuk-colour("white");
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
 
-.map-responsive {
-  overflow:hidden;
-  padding-bottom:56.25%;
-  position:relative;
-  height:0;
-}
-.map-responsive iframe {
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
+  }
 }
