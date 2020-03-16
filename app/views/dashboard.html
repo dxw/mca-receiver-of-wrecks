@@ -1,0 +1,135 @@
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        Droits Database 2020
+      </h1>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="govuk-heading-l">32</span>
+          <h2 class="govuk-heading-s">Droits received this year</h2>
+        </div>
+        <div class="stat">
+          <span class="govuk-heading-l">23</span>
+          <h2 class="govuk-heading-s">Droits closed this year</h2>
+        </div>
+        <div class="stat">
+          <span class="govuk-heading-l">130</span>
+          <h2 class="govuk-heading-s">Droits passed statutory year</h2>
+        </div>
+        <div class="stat">
+          <span class="govuk-heading-l">1,684</span>
+          <h2 class="govuk-heading-s">Droits outstanding</h2>
+        </div>
+      </div>
+
+
+      {{ govukTable({
+        caption: "List of droits",
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: "Droit No."
+          },
+          {
+            text: "Name"
+          },
+          {
+            text: "Location"
+          },
+          {
+            text: "Description"
+          },
+          {
+            text: "Status"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='#'>20/032</a>"
+            },
+            {
+              text: "Unknown Dinghy"
+            },
+            {
+              text: "Bideford, Devon"
+            },
+            {
+              text: "Abandoned dinghy etc. etc."
+            },
+            {
+              text: "Initial investigation started"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>20/031</a>"
+            },
+            {
+              text: "Porthole from HMS Rewa"
+            },
+            {
+              text: "Bournemouth, Dorset"
+            },
+            {
+              text: "Porthole found bumping"
+            },
+            {
+              text: "New"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>20/030</a>"
+            },
+            {
+              text: "Pottery"
+            },
+            {
+              text: "Southampton, Hampshire"
+            },
+            {
+              text: "Old bit of pottery from…"
+            },
+            {
+              text: "Negotiations"
+            }
+          ],
+          [
+            {
+              html: "<a href='#'>20/032</a>"
+            },
+            {
+              text: "Treasure chest"
+            },
+            {
+              text: "Walton-on-the-Naze, Essex"
+            },
+            {
+              text: "Treasure chest from the famous old wreck"
+            },
+            {
+              text: "Initial investigation started"
+            }
+          ]
+
+        ]
+      }) }}
+
+
+    </div>
+</div>
+
+{% endblock %}

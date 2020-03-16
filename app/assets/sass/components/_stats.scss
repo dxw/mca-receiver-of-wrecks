@@ -1,0 +1,22 @@
+.stats {
+  display: grid;
+  grid-gap: govuk-spacing(9);
+  grid-template-columns: repeat(4, 1fr);
+  // grid-template-rows: repeat(2, auto);
+
+  margin-bottom: govuk-spacing(9);
+
+  .stat {
+    display: grid;
+    align-content: start;
+
+    span {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin-bottom: 0;
+    }
+  }
+
+}
