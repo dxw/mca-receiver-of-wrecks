@@ -1,0 +1,76 @@
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/button/macro.njk" import govukButton %}
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Register with the Reciever of Wreck - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half-from-desktop">
+      <h1 class="govuk-heading-xl">
+        Register with the Reciever of Wreck
+      </h1>
+
+      <p class="govuk-body-l">Register with RoW to be able to report one or more wrecks found.</p>
+
+      <form class="form" action="/one-or-multiple" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "Name"
+          },
+          id: "report-name",
+          name: "report-name"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email"
+          },
+          id: "report-email",
+          name: "report-email"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Address"
+          },
+          id: "report-address",
+          name: "report-address"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Telephone"
+          },
+          id: "report-phone",
+          name: "report-phone"
+        }) }}
+
+        {{ govukCheckboxes({
+          idPrefix: "agree-terms",
+          name: "agree-terms",
+          classes: "govuk-checkboxes--small",
+          items: [
+            {
+              value: "agree-legal-terms",
+              text: "I agree to the legal terms"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Register and report a wreck"
+        }) }}
+
+      </form>
+
+    </div>
+</div>
+
+{% endblock %}

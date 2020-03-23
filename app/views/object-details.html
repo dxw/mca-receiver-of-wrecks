@@ -1,0 +1,98 @@
+{% extends "layout_unbranded.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/file-upload/macro.njk" import govukFileUpload %}
+
+{% block pageTitle %}
+  Tell us about an individual wreck object
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Tell us about an individual wreck object</h1>
+
+      <form class="form" action="/check-your-answers" method="post">
+
+
+        {{ govukInput({
+          label: {
+            text: "Quantity"
+          },
+          id: "object-quantity",
+          name: "object-quantity",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukTextarea({
+          name: "object-description",
+          id: "object-description",
+          label: {
+            text: "Description of Property"
+          },
+          hint: {
+            text: "Including identifying marks, weight, dimensions, colour, condition, age etc."
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Estimated value (£)"
+          },
+          id: "object-value",
+          name: "object-value",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukFileUpload({
+          id: "file-upload-1",
+          name: "file-upload-1",
+          label: {
+            text: "Upload an image"
+          },
+          hint: {
+            text: "A photograph or simple sketch if possible"
+          }
+        }) }}
+
+        {{ govukRadios({
+          classes: "govuk-radios--small",
+          idPrefix: "object-removed",
+          name: "object-removed",
+          fieldset: {
+            legend: {
+              text: "Has the property been removed from the wreck site?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends "layout_unbranded.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+{% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{% block pageTitle %}
+  Tell us about the wreck
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="/url/of/previous/page">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Tell us about the wreck</h1>
+
+      <form class="form" action="/object-details" method="post">
+
+        <h2 class="govuk-heading-l">Details of find</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Wreck depth"
+          },
+          id: "wreck-depth",
+          name: "wreck-depth",
+          classes: "govuk-input--width-5"
+        }) }}
+
+        {{ govukDateInput({
+          id: "date-found",
+          namePrefix: "date-found",
+          fieldset: {
+            legend: {
+              text: "What date was the wreck found?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          }
+        }) }}
+
+        <h2 class="govuk-heading-l">Wreck information</h2>
+
+        {{ govukInput({
+          label: {
+            text: "Wreck name (if known)"
+          },
+          id: "wreck-name",
+          name: "wreck-name",
+          classes: "govuk-input--width-5"
+        }) }}
+
+        {{ govukDateInput({
+          id: "date-sunk",
+          namePrefix: "date-sunk",
+          fieldset: {
+            legend: {
+              text: "Date of sinking",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          }
+        }) }}
+
+        <h2 class="govuk-heading-l">Location</h2>
+
+        {{ govukTextarea({
+          name: "wreck-description",
+          id: "wreck-description",
+          label: {
+            text: "Description of wreck on seabed"
+          },
+          hint: {
+            text: "Including condition, type, orientation, dimensions, propulsion, cargo etc"
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "wreck-position",
+          id: "wreck-position",
+          label: {
+            text: "Position of the wreck"
+          },
+          hint: {
+            text: "Please give the exact position where the wreck was found. Give co-ordinates and state whether found on seabed, afloat, ashore or bumping"
+          }
+        }) }}
+
+        {{ govukTextarea({
+          name: "wreck-additional-info",
+          id: "wreck-additional-info",
+          label: {
+            text: "Additional Information"
+          },
+          hint: {
+            text: "Anything else you'd like to tell us about the wreck"
+          }
+        }) }}
+
+        <h2 class="govuk-heading-l">Cost of recovery</h2>
+
+        {{ govukTextarea({
+          name: "wreck-cost",
+          id: "wreck-cost",
+          label: {
+            text: "Outline the costs of recovery"
+          },
+          hint: {
+            text: "In as much detail as possible, please give nature, duration and estimated costs of any services rendered on behalf of the owner of the property."
+          }
+        }) }}
+
+        <h2 class="govuk-heading-l">Claiming salvage</h2>
+
+        {{ govukRadios({
+          classes: "govuk-radios--small",
+          idPrefix: "claim-salvage",
+          name: "claim-salvage",
+          fieldset: {
+            legend: {
+              text: "Do you wish to claim salvage in respect of expenses incurred during the performance of these services?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
